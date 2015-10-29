@@ -173,7 +173,7 @@ interface AirConsoleStatic {
    *  @constructor
    *  @param {AirConsole~Config} opts - Constructor config.
    */
-  new(opts: Config | Object): AirConsole;
+  new(opts?: Config | Object): AirConsole;
 
   /**
    *  The device ID of the game screen.
