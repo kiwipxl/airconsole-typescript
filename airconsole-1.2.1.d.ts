@@ -16,14 +16,22 @@ interface Config {
 
 interface AirConsole {
 
-  version:string;
-  devices;
-  server_time_offset:number;
+  version: string;
+  devices: Array<DeviceState>;
+  server_time_offset: number;
 
+  broadcast(data: any): void;
+  getCustomDeviceState(device_id: number | void): Object | void;
+  getProfilePicture(device_id: number | void, size: number | void): string | void;
   getServerTime(): number;
   message(to: number | void, data:any): void;
   navigateHome(): void;
   onDeviceStateChange(device_id, user_data: DeviceState): void;
+  onMessage(from: number, data: any): void;
+  onReady(code: string): void;
+  setCustomDeviceState(data: Object): void;
+  setOrientation(orientation: string): void;
+  showDefaultUI(visible: boolean): void;
 }
 
 interface AirConsoleStatic {
@@ -41,11 +49,11 @@ interface AirConsoleStatic {
   *           param has "synchronize_time" set to true and onReady was called.
   * @param {AirConsole~Config} opts - Constructor config.
   */
-  new(opts:any): AirConsole;
+  new(opts: Config): AirConsole;
 
-  ORIENTATION_PORTRAIT:string;
-  ORIENTATION_LANDSCAPE:string;
-  SCREEN:number;
+  ORIENTATION_PORTRAIT: string;
+  ORIENTATION_LANDSCAPE: string;
+  SCREEN: number; //The device ID of the game screen.
 }
 
 declare var AirConsole: AirConsoleStatic;
