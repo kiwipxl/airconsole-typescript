@@ -22,8 +22,8 @@
     ],
     "files": [
         "./airconsole-1.2.1.d.ts",
-        "./controller.ts",
-        "./screen.ts",
-        "./shared.ts"
+        "./tests/src/controller.ts",
+        "./tests/src/screen.ts",
+        "./tests/src/shared.ts"
     ]
 }

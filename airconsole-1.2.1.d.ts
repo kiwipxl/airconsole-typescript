@@ -1,4 +1,19 @@
 
+interface DeviceState {
+
+  uid: string;
+  custom: string | void;
+  nickname: string | void;
+  slow_connection: boolean | void;
+}
+
+interface Config {
+
+  orientation: string;
+  synchronize_time: boolean | void;
+  setup_document: boolean | void;
+}
+
 interface AirConsole {
 
   version:string;
@@ -6,8 +21,9 @@ interface AirConsole {
   server_time_offset:number;
 
   getServerTime(): number;
-  message(to: number, data:any);
-  navigateHome();
+  message(to: number | void, data:any): void;
+  navigateHome(): void;
+  onDeviceStateChange(device_id, user_data: DeviceState): void;
 }
 
 interface AirConsoleStatic {
@@ -33,3 +49,5 @@ interface AirConsoleStatic {
 }
 
 declare var AirConsole: AirConsoleStatic;
+declare var DeviceState: DeviceState;
+declare var Config: Config;
