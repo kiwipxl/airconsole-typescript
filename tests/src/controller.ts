@@ -11,7 +11,7 @@ window.onload = function() {
   });
 
   air_console.onReady = function() {
-    
+    air_console.getNickname
   };
 
   air_console.onMessage = function(device_id, data) {
